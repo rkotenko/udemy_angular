@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html ng-app="angularApp">
+	<head>
+		<title>AngularJS</title>
+		<link rel="stylesheet" href="vendors/bootstrap.min.css" />
+	</head>
+	<body>
+		 <header>
+			<nav class="navbar navbar-default">
+			<div class="container">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="/">AngularJS</a>
+				</div>
+
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#"><i class="fa fa-home"></i> Home</a></li>
+				</ul>
+			</div>
+			</nav>
+		</header>
+		<div class="container">
+			<div ng-controller="mainController">
+                <div>
+					<label>What is your twitter handle?</label>
+					<input type="text" ng-model="handle">
+					<hr>
+					<h1>twitter.com/{{lowercaseHandle()}}</h1>
+				</div>
+            </div>
+		</div>
+		<script src="vendors/angular.js"></script>
+		<script src="vendors/angular-messages.min.js"></script>
+		<script src="vendors/angular-resource.min.js"></script>
+		<script src="vendors/jquery.min.js"></script>
+		<script src="js/app.js"></script>
+	</body>
+</html>
