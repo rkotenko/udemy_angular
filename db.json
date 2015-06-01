@@ -1,0 +1,28 @@
+{
+  "api": [
+    {
+      "id": 1,
+      "rulename": "Must be at least 5 character"
+    },
+    {
+      "id": 2,
+      "rulename": "Must not be used elsewhere"
+    },
+    {
+      "id": 3,
+      "rulename": "?"
+    },
+    {
+      "id": 4,
+      "rulename": "Rule 4"
+    },
+    {
+      "id": 5,
+      "rulename": "Needs ice"
+    },
+    {
+      "id": 6,
+      "rulename": "needs gum"
+    }
+  ]
+}
