@@ -1,8 +1,9 @@
-<label>Search</label>
-<input type="text" value="Doe">
-
-<h3>Search Results</h3>
-
-<div class="list-group">
-  <search-result person="person"></search-result>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <h4>Forecast by City</h4>
+    <div class="form-group">
+      <input type="text" class="form-control" ng-model="city" ng-change="cityService.updateCity(city)">
+      <a href="#/forecast" class="btn btn-primary">Get Forecast</a>
+    </div>
+  </div>
 </div>

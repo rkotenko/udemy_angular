@@ -1,42 +1,21 @@
-// None of the code here is very well organized.  It is strictly being used
-// for learning.
-
-var angularApp = angular.module('angularApp', ['ngRoute']);
-
-angularApp.config(function($routeProvider) {
-  $routeProvider
-    .when('/', {
-      templateUrl: 'pages/main.html',
-      controller: 'mainController'
-    })
-    .when('/second/:num?', {
-      templateUrl: 'pages/second.html',
-      controller: 'secondController'
-    });
-  
-});
-
-angularApp.controller('mainController',  ['$scope', '$log', 
-  function ($scope, $log) {
-    $scope.person = {
-        name: 'Rob K',
-        address: '555 Test st, Anytown'
+var weatherApp = angular.module('weatherApp', ['ngRoute', 'ngResource'])
+  .factory('cityService', function () {
+    return {
+      city: 'New York',
+      updateCity: function (city) {
+        this.city = city;
+      }
     };
-}]);
-
-angularApp.controller('secondController',  ['$scope', '$log', '$routeParams',
-  function ($scope, $log, $routeParams) {
-    
-   
-}]);
-
-angularApp.directive('searchResult', function() {
-  return {
-    templateUrl: 'directives/searchResults.html',
-    replace: true,
-    scope: {
-      person: '='
-    }
-  };
-});
-
+  })
+  .controller('homeController', ['$scope', 'cityService',
+    function ($scope, cityService) {
+      $scope.city = cityService.city;
+      
+      // add to scope to make the function accessible in the template.  This
+      // keeps the update code for the service inside of the service itself
+      $scope.cityService = cityService;  
+    }])
+  .controller('forecastController', ['$scope', 'cityService',
+    function ($scope, cityService) {
+      $scope.city = cityService.city;
+    }]);
