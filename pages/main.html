@@ -1,9 +1,13 @@
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
     <h4>Forecast by City</h4>
-    <div class="form-group">
-      <input type="text" class="form-control" ng-model="city" ng-change="cityService.updateCity(city)">
-      <a href="#/forecast" class="btn btn-primary">Get Forecast</a>
-    </div>
+    <form name="cityForm" novalidate ng-submit="submit()">
+      <div class="form-group">
+        <input name="city" required type="text" class="form-control" 
+        ng-model="city" ng-change="cityService.updateCity(city)">
+        <input type="submit" class="btn btn-primary" 
+        ng-disabled="cityForm.city.$dirty && cityForm.city.$invalid" value="Get Forecast">
+      </div>
+    </form>
   </div>
 </div>
